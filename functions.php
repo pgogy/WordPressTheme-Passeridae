@@ -12,6 +12,8 @@ function passeridae_setup() {
 	
 	add_theme_support( 'custom-background' );
 	
+	if ( ! isset( $content_width ) ) $content_width = 900;
+	
 	$chargs = array(
 		'width' => 980,
 		'height' => 300,
@@ -63,6 +65,8 @@ function passeridae_scripts() {
 	wp_enqueue_style( 'passeridae-style-mobile-400', get_template_directory_uri() . '/css/mobile400.css' );
 	wp_enqueue_style( 'passeridae-main-menu-style', get_template_directory_uri() . '/css/menu/main-menu.css' );
 	wp_enqueue_style( 'passeridae-slide-menu-style', get_template_directory_uri() . '/css/menu/slide-menu.css' );
+	
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
 	wp_enqueue_script( 'passeridae-table-fix', get_template_directory_uri() . '/js/display/table_fix.js', array( 'jquery' ) );
 	wp_enqueue_script( 'passeridae-youtube', get_template_directory_uri() . '/js/display/youtube-fix.js', array( 'jquery' ) );
@@ -244,7 +248,7 @@ add_action("wp_head", "passeridae_extra_style");
 function passeridae_excerpt_more( $excerpt ) {
 	$parts = explode(" ", $excerpt);
 	array_pop($parts);
-	$replace ='<a href="' . get_post_permalink() . '">' . _x("read more", "passeridae") . "</a>";
+	$replace ='<a href="' . get_post_permalink() . '">' . _x("read more", "read more", "passeridae") . "</a>";
 	return implode(" ", $parts) . "... " . $replace;
 }
 add_filter( 'excerpt_more', 'passeridae_excerpt_more' );
@@ -291,7 +295,7 @@ function passeridae_featured_category_create(){
 
 	if(!get_option("passeridae_featured")){
 
-		$id = wp_create_category(_x("Featured Content", "passeridae"));
+		$id = wp_create_category(_x("Featured Content", "featured content", "passeridae"));
 		add_option("passeridae_featured", $id);
 	
 	}

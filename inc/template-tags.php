@@ -25,7 +25,7 @@ function passeridae_get_categories_links($id){
 	
 	
 	if(count($html)==0){
-		$html[] = _x("No Categories", "passeridae");
+		$html[] = _x("No Categories", "No categories", "passeridae");
 	}
 	
 	return $html;
@@ -34,46 +34,27 @@ function passeridae_get_categories_links($id){
 
 function passeridae_get_tags($id){
 
-	$post_tags = wp_get_post_tags($id);
-	$cats = array();
-		
-	foreach($post_tags as $c){
-		$cat = get_tag( $c );
-		$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug, 'link' => get_tag_link($c) );
-	}
-	
-	return $cats;
+	the_tags(" ", "/", " ");
 
 }
 
 function passeridae_get_tags_links($id){
 
-	$html = array();
 	$cats = passeridae_get_tags($id);
-	
-	foreach($cats as $cat){
-		$html[] = "<a href='" . $cat['link'] ."'>" . $cat['name'] . "</a>";
-	}
-	
-	if(count($html)==0){
-		$html[] = _x("No Tags", "passeridae");
-	}
-	
-	return $html;
 
 }
 
 function passeridae_entry_meta() {
 	
 	?><div>
-		<h6 class='meta_label'><?PHP echo _x('Categories', 'passeridae'); ?></h6><span><?PHP echo implode(" / ", passeridae_get_categories_links(get_the_ID())); ?></span>
+		<h6 class='meta_label'><?PHP echo _x('Categories', "Categories", 'passeridae'); ?></h6><span><?PHP echo implode(" / ", passeridae_get_categories_links(get_the_ID())); ?></span>
 	</div>
 	<div>
-		<h6 class='meta_label'><?PHP echo _x('Tags', 'passeridae'); ?></h6><span><?PHP echo implode(" / ", passeridae_get_tags_links(get_the_ID())); ?></span>
+		<h6 class='meta_label'><?PHP echo _x('Tags', "Tags", 'passeridae'); ?></h6><span><?PHP passeridae_get_tags_links(get_the_ID()); ?></span>
 	</div>
 	<?PHP if(get_theme_mod("author")=="on"){ ?>
 	<div>
-		<h6 class='meta_label'><?PHP echo _x('Author', 'passeridae'); ?></h6><span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span></h6>
+		<h6 class='meta_label'><?PHP echo _x('Author', "Author", 'passeridae'); ?></h6><span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span></h6>
 	</div>
 	<?PHP
 	}
@@ -120,7 +101,7 @@ function passeridae_author_title(){
 function passeridae_child_categories(){
 
 	?><footer class="page-footer">
-		<h1 class="page-title"><?PHP echo _x('Related Categories', 'passeridae'); ?></h1>
+		<h1 class="page-title"><?PHP echo _x('Related Categories', "Related Categories", 'passeridae'); ?></h1>
 		<div class="taxonomy-description"><?PHP
 		
 			$category = get_category($_GET['cat']);
@@ -205,7 +186,7 @@ function passeridae_featured_posts_content($type, $id){
 	if ( $the_query->have_posts() ) {
 
 		?><footer class="page-footer featured-content">
-			<h1 class="page-title"><?PHP echo _x('Featured Content', 'passeridae'); ?></h1>
+			<h1 class="page-title"><?PHP echo _x('Featured Content', "Featured content", 'passeridae'); ?></h1>
 		</footer>
 		<div class="featured-content">
 			<?PHP

@@ -4,6 +4,9 @@
 			if ( is_single() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			endif;
+			?><div class="thumbnail"><?PHP
+				the_post_thumbnail();
+			?></div><?PHP
 		?>
 	</header><!-- .entry-header -->
 
@@ -15,6 +18,7 @@
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
 		?>
+		<?php wp_link_pages( $args ); ?>
 	</div><!-- .entry-content -->
 	
 	<footer class="entry-footer">

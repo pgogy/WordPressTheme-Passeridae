@@ -23,6 +23,7 @@ function passeridae_customize_register_home_page_layout( $wp_customize ){
 		'home_page',
 		array(
 			'default' => 'all_posts',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	 
@@ -53,6 +54,7 @@ function passeridae_customize_register_home_page_layout( $wp_customize ){
 			'category_' . $c->term_id,
 			array(
 				'default' => 'on',
+				'sanitize_callback' => 'passeridae_sanitize_text'
 			)
 		);
 		 
@@ -84,6 +86,7 @@ function passeridae_customize_register_page_layout( $wp_customize ){
 		'pagination',
 		array(
 			'default' => 'on',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	 
@@ -104,6 +107,7 @@ function passeridae_customize_register_page_layout( $wp_customize ){
 		'search',
 		array(
 			'default' => 'on',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	 
@@ -124,6 +128,7 @@ function passeridae_customize_register_page_layout( $wp_customize ){
 		'author',
 		array(
 			'default' => 'on',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	 
@@ -151,7 +156,10 @@ function passeridae_customize_register_fav_icon( $wp_customize ){
 	) );
 
 	$wp_customize->add_setting(
-		'fav_icon_url'
+		'fav_icon_url',
+		array(
+			'sanitize_callback' => 'passeridae_sanitize_text'
+		)
 	);
 	 
 	$wp_customize->add_control(
@@ -180,6 +188,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -200,6 +209,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -220,6 +230,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -241,6 +252,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -261,6 +273,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -281,6 +294,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -301,6 +315,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -321,6 +336,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -341,6 +357,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -361,6 +378,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -381,6 +399,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -401,6 +420,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -421,6 +441,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -441,6 +462,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -461,6 +483,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -481,6 +504,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -501,6 +525,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -521,6 +546,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -541,6 +567,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -561,6 +588,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -581,6 +609,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -601,6 +630,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -621,6 +651,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -641,6 +672,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -661,6 +693,7 @@ function passeridae_customize_register_add_site_colours( $wp_customize ) {
 		array(
 			'default' => '',
 			'transport' => 'postMessage',
+			'sanitize_callback' => 'passeridae_sanitize_text'
 		)
 	);
 	
@@ -687,7 +720,9 @@ function passeridae_customize_register_new_background( $wp_customize ) {
 
 	$wp_customize->add_setting(
 		'bkgsetting',
-		array()
+		array(
+			'sanitize_callback' => 'passeridae_sanitize_text'
+		)
 	);
 	 
 	$wp_customize->add_control(
@@ -717,6 +752,9 @@ function passeridae_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'passeridae_customize_register' );
 
+function passeridae_sanitize_text($str){
+	return sanitize_text_field($str);
+}
 
 function passeridae_customize_preview_js() {
 	wp_enqueue_script( 'passeridae_customizer', get_template_directory_uri() . '/js/passeridae_customiser.js', array( 'customize-preview' ), '20131205', true );
